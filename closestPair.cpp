@@ -91,6 +91,9 @@ int main()
         cin >> tempY;
         points.push_back(make_pair(tempX,tempY));
     }
+    /*
+    To check ans through Brute force which takes o(n2) complexity
+    
     float minDistance = distance(points[0],points[1]);
     for(int i = 0; i < points.size(); i++)
     {
@@ -102,7 +105,8 @@ int main()
             }
         }
     }
-    cout << minDistance << endl;
+    */
+    //cout << minDistance << endl;
     pair<pair<float,float>,pair<float,float>> Ans = closestPair(points);
 
     cout << "The closest Point in the 2D sapce is :"<< endl;
