@@ -15,7 +15,7 @@ bool compare2(pair<float,float> p1,pair<float,float> p2)
 pair<pair<float,float>,pair <float,float>> closestPair(vector <pair<float,float>> points)
 {
     int no = points.size();
-    if(no > 2)
+    if(no > 3)
     {
         vector <pair<float,float>> pointsX(points);
         sort(pointsX.begin(),pointsX.end(),compare1);
@@ -60,8 +60,20 @@ pair<pair<float,float>,pair <float,float>> closestPair(vector <pair<float,float>
         }
        return MainAns;
     }
-    else
+    else if(no ==2)
         return make_pair(points[0],points[1]);
+    else
+    {
+        float dis1 = distance(points[0],points[1]);
+        float dis2 = distance(points[1],points[2]);
+        float dis3 = distance(points[0],points[2]);
+        if(dis1 <= dis2 && dis1 <= dis3)
+            return make_pair(points[0],points[1]);
+        else if(dis2 <= dis1 && dis2 <= dis3)
+            return make_pair(points[1],points[2]);
+        else
+            return make_pair(points[0],points[2]);
+    }
 }
 int main()
 {
